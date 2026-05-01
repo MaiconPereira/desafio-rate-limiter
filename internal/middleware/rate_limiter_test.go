@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"desafio4-rate-limit/internal/limiter"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/limiter"
 )
 
 func TestMiddlewareReturns429WithExpectedBody(t *testing.T) {

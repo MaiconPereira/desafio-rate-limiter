@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"desafio4-rate-limit/internal/limiter"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/limiter"
 )
 
 type Config struct {

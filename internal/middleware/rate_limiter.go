@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"desafio4-rate-limit/internal/limiter"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/limiter"
 )
 
 const blockedMessage = "you have reached the maximum number of requests or actions allowed within a certain time frame"

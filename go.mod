@@ -1,4 +1,4 @@
-module desafio4-rate-limit
+module github.com/MaiconPereira/desafio-rate-limit
 
 go 1.22
 

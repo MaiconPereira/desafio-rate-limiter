@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"time"
 
-	"desafio4-rate-limit/internal/config"
-	"desafio4-rate-limit/internal/infra/redisstore"
-	"desafio4-rate-limit/internal/limiter"
-	"desafio4-rate-limit/internal/middleware"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/config"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/infra/redisstore"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/limiter"
+	"github.com/MaiconPereira/desafio-rate-limit/internal/middleware"
 
 	"github.com/redis/go-redis/v9"
 )
