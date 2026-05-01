@@ -1,0 +1,41 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      APP_PORT: 8080
+      REDIS_ADDR: redis:6379
+      REDIS_PASSWORD: ""
+      REDIS_DB: 0
+      RATE_LIMIT_IP_RPS: 10
+      RATE_LIMIT_TOKEN_RPS: 100
+      RATE_LIMIT_TOKEN_OVERRIDES: "basic-token=5,premium-token=100"
+      RATE_LIMIT_BLOCK_DURATION: 5m
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  tests:
+    profiles:
+      - test
+    image: golang:1.22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: go test ./...
+    environment:
+      CGO_ENABLED: 0
+    depends_on:
+      redis:
+        condition: service_healthy
